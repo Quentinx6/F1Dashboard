@@ -1,0 +1,21 @@
+@font-face {
+    font-family: "formule1";
+    src: url(Formule1.ttf);
+  }
+
+body{
+    margin: 0;
+    font-family: formule1, sans-serif;
+}
+.divLogo{
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    background-color: black;
+    border-bottom: 2px #EE0000 solid;
+}
+
+.logo{
+    width: 300px;
+    height: 100px;
+}
