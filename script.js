@@ -28,17 +28,24 @@ fetch("https://ergast.com/api/f1/2022.json")
 
             let pData = data["MRData"]["RaceTable"]["Races"][i]["raceName"];
             pGp.innerHTML = pData;
-
+            
+            let divInfo = document.createElement("div");
+            divInfo.setAttribute("class", "divInfo");
             divParent.addEventListener("click", () => {
-                let divInfo = document.createElement("div");
-                divInfo.setAttribute("class", "divInfo");
-                // divInfo.classlist.toggle("display")
-                fetch("https://ergast.com/api/f1/2022/"+ (i+1) + "/results.json")
 
-                .then((res) => res.json())
-                .then((results) =>{
-                    console.log(results)
-                })
+                if(divParent.contains(divInfo)){
+                    divParent.removeChild(divInfo);
+                } else{
+                    divParent.appendChild(divInfo);
+                    
+                    fetch("https://ergast.com/api/f1/2022/"+ (i+1) + "/results.json")
+    
+                    .then((res) => res.json())
+                    .then((results) =>{
+                        console.log(results)
+                    })
+                }
+
             })
 
             container.appendChild(divParent);

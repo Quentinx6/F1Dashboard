@@ -56,6 +56,8 @@ body{
     margin-right: 10px;
 }
 
-.display{
-    display: none;
+.divInfo{
+    background-color: #EE0000;
+    width: 10px;
+    height: 10px;
 }
