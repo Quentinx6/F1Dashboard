@@ -33,6 +33,12 @@ fetch("https://ergast.com/api/f1/2022.json")
                 let divInfo = document.createElement("div");
                 divInfo.setAttribute("class", "divInfo");
                 // divInfo.classlist.toggle("display")
+                fetch("https://ergast.com/api/f1/2022/"+ (i+1) + "/results.json")
+
+                .then((res) => res.json())
+                .then((results) =>{
+                    console.log(results)
+                })
             })
 
             container.appendChild(divParent);
@@ -41,10 +47,4 @@ fetch("https://ergast.com/api/f1/2022.json")
                 divGp.appendChild(pGp);
                 divParent.appendChild(chevron);
         }
-        fetch("https://ergast.com/api/f1/2022/results.json")
-
-        .then((res) => res.json())
-        .then((results) =>{
-            console.log(results)
-        })
     })
