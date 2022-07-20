@@ -19,3 +19,39 @@ body{
     width: 300px;
     height: 100px;
 }
+
+.divParent{
+    display: flex;
+    width: 100%;
+    background-color: black;
+    margin-top: 10px;
+    align-items: center;
+
+}
+
+.divGp{
+
+    display: flex;
+    align-items: center;
+    height: 35px;
+    width: 100%;
+}
+
+.flagGp{
+    width: 25px;
+    height: 20px;
+    margin: 0 10px;
+    border-radius: 3px;
+}
+
+.pGp{
+    color: white;
+    margin:0;
+}
+
+.chevron{
+    background-color: white;
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+}
