@@ -26,6 +26,7 @@ body{
     background-color: black;
     margin-top: 10px;
     align-items: center;
+    flex-wrap: wrap;
 
 }
 
@@ -34,7 +35,7 @@ body{
     display: flex;
     align-items: center;
     height: 35px;
-    width: 100%;
+    width: 92%;
 }
 
 .flagGp{
