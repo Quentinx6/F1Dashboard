@@ -10,14 +10,29 @@ body{
 .divLogo{
     padding: 20px;
     display: flex;
-    justify-content: center;
+    justify-content: flex-end;
     background-color: black;
     border-bottom: 2px #EE0000 solid;
 }
 
+.divF1{
+    width: 100%;
+    text-align: center;
+}
+
 .logo{
-    width: 300px;
-    height: 100px;
+    width: 200px;
+    height: 50px;
+}
+
+.divMenu{
+    text-align: center;
+    margin: auto;
+}
+
+.menu{
+    width: 40px;
+    height: 40px;
 }
 
 .divParent{
@@ -61,4 +76,14 @@ body{
     background-color: #EE0000;
     width: 10px;
     height: 10px;
+}
+
+.footer{
+    width: 100%;
+    height: 100px;
+    background-color: black;
+    margin-top: 10px;
+    border-top: 2px #EE0000 solid;
+    color: white;
+    text-align: center;
 }
