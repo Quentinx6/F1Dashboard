@@ -7,6 +7,8 @@ body{
     margin: 0;
     font-family: formule1, sans-serif;
 }
+
+/* Header */
 .divLogo{
     padding: 20px;
     display: flex;
@@ -35,6 +37,11 @@ body{
     height: 40px;
 }
 
+/* Container */
+
+.titre{
+    text-align: center;
+}
 .divParent{
     display: flex;
     width: 100%;
@@ -73,10 +80,25 @@ body{
 }
 
 .divInfo{
-    background-color: #EE0000;
-    width: 10px;
-    height: 10px;
+    background-color: black;
+    width: 100%;
+    border-top: 2px #EE0000 solid;
+    text-align: center;
 }
+
+.pFirst{
+    color: white;
+}
+
+.pDate{
+    color: white;
+}
+
+.pHeure{
+    color: white;
+}
+
+/* Footer */
 
 .footer{
     width: 100%;
