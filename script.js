@@ -36,6 +36,15 @@ fetch("https://ergast.com/api/f1/2022.json")
             let pFirst = document.createElement("p");
             pFirst.setAttribute("class", "pFirst");
 
+            let divPodium = document.createElement("div");
+            divPodium.setAttribute("class", "divPodium");
+
+            let pSecond = document.createElement("p");
+            pSecond.setAttribute("class", "pSecond");
+
+            let pTrois = document.createElement("p");
+            pTrois.setAttribute("class", "pTrois");
+
             // Affichage course à venir
 
             let pDate = document.createElement("p");
@@ -52,7 +61,10 @@ fetch("https://ergast.com/api/f1/2022.json")
                     if(divInfo.contains(pFirst)){
 
                         divInfo.removeChild(pFirst);
-                        divParent.removeChild(divInfo);
+                        divInfo.removeChild(divPodium)
+                            divPodium.removeChild(pSecond);
+                            divPodium.removeChild(pTrois);
+                                divParent.removeChild(divInfo);
                     }else{
                         divInfo.removeChild(pDate);
                         divInfo.removeChild(pHeure);
@@ -69,11 +81,21 @@ fetch("https://ergast.com/api/f1/2022.json")
                         let lengthRace = results["MRData"]["RaceTable"]["Races"].length;
                         if(lengthRace > 0){
                             console.log(results)
-                            let dataFirst = "1er : " + results["MRData"]["RaceTable"]["Races"]["0"]["Results"]["0"]["Driver"]["familyName"] + " " + results["MRData"]["RaceTable"]["Races"]["0"]["Results"]["0"]["Driver"]["givenName"];
+                            let dataFirst = "1er : " + results["MRData"]["RaceTable"]["Races"]["0"]["Results"]["0"]["Driver"]["givenName"] + " " + results["MRData"]["RaceTable"]["Races"]["0"]["Results"]["0"]["Driver"]["familyName"];
+
+                            let dataSecond = "2eme : " + results["MRData"]["RaceTable"]["Races"]["0"]["Results"]["1"]["Driver"]["givenName"] + " " + results["MRData"]["RaceTable"]["Races"]["0"]["Results"]["1"]["Driver"]["familyName"];
+
+                            let dataTrois = "3eme : " + results["MRData"]["RaceTable"]["Races"]["0"]["Results"]["2"]["Driver"]["givenName"] + " " + results["MRData"]["RaceTable"]["Races"]["0"]["Results"]["2"]["Driver"]["familyName"];
     
                             pFirst.innerHTML = dataFirst;
+                            pSecond.innerHTML = dataSecond;
+                            pTrois.innerHTML = dataTrois;
     
                             divInfo.appendChild(pFirst);
+                            divInfo.appendChild(divPodium);
+                            divInfo.appendChild(divPodium);
+                                divPodium.appendChild(pSecond);
+                                divPodium.appendChild(pTrois);
                         } else {
                             fetch("https://ergast.com/api/f1/2022/"+ (i+1) + ".json")
     
@@ -86,8 +108,11 @@ fetch("https://ergast.com/api/f1/2022.json")
 
                                 pDate.innerHTML = dataDate;
 
-                                let heureJson = results["MRData"]["RaceTable"]["Races"]["0"]["time"];
-                                let dataHeure = "Heure de la course : " + heureJson;
+                                //let heureJson = new Date(results["MRData"]["RaceTable"]["Races"]["0"]["time"]).toLocaleTimeString();
+                                let heureJson = new Date(results["MRData"]["RaceTable"]["Races"]["0"]["date"]+'T'+results["MRData"]["RaceTable"]["Races"]["0"]["time"]).getHours();
+
+                                // var d = new Date('2015-03-04T00:00:00.000Z');
+                                let dataHeure = "Heure de la course : " + heureJson + " Heures";
 
                                 pHeure.innerHTML = dataHeure
 

@@ -88,6 +88,23 @@ body{
 
 .pFirst{
     color: white;
+    margin: 7px 0;
+}
+.divPodium{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.pSecond{
+    display: inline-block;    
+    color: white;
+    margin: 7px 0;
+}
+
+.pTrois{
+    display: inline-block;
+    color: white;
+    margin: 7px 0;
 }
 
 .pDate{
