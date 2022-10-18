@@ -33,6 +33,9 @@ fetch("https://ergast.com/api/f1/2022.json")
             let divInfo = document.createElement("div");
             divInfo.setAttribute("class", "divInfo");
 
+            let pCourse = document.createElement("p");
+            pCourse.setAttribute("class", "pCourse");
+
             let pFirst = document.createElement("p");
             pFirst.setAttribute("class", "pFirst");
 
@@ -60,11 +63,11 @@ fetch("https://ergast.com/api/f1/2022.json")
                 if(divParent.contains(divInfo)){
                     if(divInfo.contains(pFirst)){
 
+                        divInfo.removeChild(pCourse);
                         divInfo.removeChild(pFirst);
-                        divInfo.removeChild(divPodium)
-                            divPodium.removeChild(pSecond);
-                            divPodium.removeChild(pTrois);
-                                divParent.removeChild(divInfo);
+                        divInfo.removeChild(pSecond);
+                        divInfo.removeChild(pTrois);
+                            divParent.removeChild(divInfo);
                     }else{
                         divInfo.removeChild(pDate);
                         divInfo.removeChild(pHeure);
@@ -81,21 +84,21 @@ fetch("https://ergast.com/api/f1/2022.json")
                         let lengthRace = results["MRData"]["RaceTable"]["Races"].length;
                         if(lengthRace > 0){
                             console.log(results)
-                            let dataFirst = "1er : " + results["MRData"]["RaceTable"]["Races"]["0"]["Results"]["0"]["Driver"]["givenName"] + " " + results["MRData"]["RaceTable"]["Races"]["0"]["Results"]["0"]["Driver"]["familyName"];
+                            let dataFirst = "🏆" + results["MRData"]["RaceTable"]["Races"]["0"]["Results"]["0"]["Driver"]["givenName"] + " " + results["MRData"]["RaceTable"]["Races"]["0"]["Results"]["0"]["Driver"]["familyName"];
 
-                            let dataSecond = "2eme : " + results["MRData"]["RaceTable"]["Races"]["0"]["Results"]["1"]["Driver"]["givenName"] + " " + results["MRData"]["RaceTable"]["Races"]["0"]["Results"]["1"]["Driver"]["familyName"];
+                            let dataSecond = "🥈" + results["MRData"]["RaceTable"]["Races"]["0"]["Results"]["1"]["Driver"]["givenName"] + " " + results["MRData"]["RaceTable"]["Races"]["0"]["Results"]["1"]["Driver"]["familyName"];
 
-                            let dataTrois = "3eme : " + results["MRData"]["RaceTable"]["Races"]["0"]["Results"]["2"]["Driver"]["givenName"] + " " + results["MRData"]["RaceTable"]["Races"]["0"]["Results"]["2"]["Driver"]["familyName"];
+                            let dataTrois = "🥉" + results["MRData"]["RaceTable"]["Races"]["0"]["Results"]["2"]["Driver"]["givenName"] + " " + results["MRData"]["RaceTable"]["Races"]["0"]["Results"]["2"]["Driver"]["familyName"];
     
+                            pCourse.innerHTML = "Podium :";
                             pFirst.innerHTML = dataFirst;
                             pSecond.innerHTML = dataSecond;
                             pTrois.innerHTML = dataTrois;
     
+                            divInfo.appendChild(pCourse);
                             divInfo.appendChild(pFirst);
-                            divInfo.appendChild(divPodium);
-                            divInfo.appendChild(divPodium);
-                                divPodium.appendChild(pSecond);
-                                divPodium.appendChild(pTrois);
+                            divInfo.appendChild(pSecond);
+                            divInfo.appendChild(pTrois);
                         } else {
                             fetch("https://ergast.com/api/f1/2022/"+ (i+1) + ".json")
     
@@ -133,3 +136,17 @@ fetch("https://ergast.com/api/f1/2022.json")
                 divParent.appendChild(chevron);
         }
     })
+
+    // fetch("https://ergast.com/api/f1/2022/12/qualifying.json")
+
+    // .then((res) => res.json())
+    // .then((data)=>{
+    //     console.log(data);
+    // })
+
+    // fetch("https://ergast.com/api/f1/2022/13/qualifying.json")
+
+    // .then((res) => res.json())
+    // .then((data)=>{
+    //     console.log(data);
+    // })

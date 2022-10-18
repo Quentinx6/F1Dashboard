@@ -86,25 +86,24 @@ body{
     text-align: center;
 }
 
-.pFirst{
+.pCourse{
     color: white;
     margin: 7px 0;
 }
-.divPodium{
-    display: flex;
-    justify-content: space-evenly;
+
+.pFirst{
+    color: white;
+    margin: 10px 0;
 }
 
 .pSecond{
-    display: inline-block;    
+    margin: 10px 0;
     color: white;
-    margin: 7px 0;
 }
 
 .pTrois{
-    display: inline-block;
+    margin: 10px 0;
     color: white;
-    margin: 7px 0;
 }
 
 .pDate{
@@ -125,4 +124,17 @@ body{
     border-top: 2px #EE0000 solid;
     color: white;
     text-align: center;
+}
+
+.source{
+    font-size: 10px;
+}
+
+.source a{
+    text-decoration: none;
+    color: white;
+}
+
+.source a:hover{
+    color: #EE0000;
 }

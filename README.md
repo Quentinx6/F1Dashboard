@@ -8,3 +8,10 @@ Ne pas afficher plus de trois divInfo trouver un moyen de créer une div qui ré
 V2 :
 
 Ajouter une barre de recherche afin de trouver toutes les infos que l'on veut sur un pilote, une écurie ou encore un grand prix.
+
+
+
+
+Idée supp :
+
+Page d'accueil avec une photo choisi au hasard avec un math random ou le nom de l'image est un nombre
