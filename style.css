@@ -10,11 +10,13 @@ body{
 
 /* Header */
 .divLogo{
-    padding: 20px;
-    display: flex;
-    justify-content: flex-end;
-    background-color: black;
-    border-bottom: 2px #EE0000 solid;
+    position: absolute;
+    width: 100%;
+    height: 63px;
+    top: 15px;
+    text-align: center;
+    z-index: 0;
+    border-bottom: solid 1px #EE0000;
 }
 
 .divF1{
@@ -41,6 +43,8 @@ body{
 
 .titre{
     text-align: center;
+    color: #eeeeee;
+    margin-top: 25px;
 }
 .divParent{
     display: flex;

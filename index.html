@@ -6,24 +6,36 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Application F1</title>
     <script src="script.js"></script>
+    <link rel="stylesheet" href="style/menu.css">
     <link rel="stylesheet" href="style.css">
 </head>
-<body>        
-    <div class="divLogo">
-        <div class="divF1">
-            <img class="logo" src="image/logof1.png" alt="Logo de la Formule 1">
-        </div>
-        <div class="divMenu">
-            <img class="menu" src="image/menu.png" alt="Représentation d'un menu par trois tirets horizontal">
-        </div>
-    </div>
-    <main class="container">
-        <h2 class="titre">Les Grand Prix 2022</h2>
-    </main>
+    <body>
+        <div class="container">
+            <div class="divLogo">
+                <img class="logo" src="image/logof1.png" alt="Logo de la Formule 1">
+            </div>
+            <!-- Cette case à cocher nous donnera le comportement de basculement, il sera caché, mais fonctionnel -->
+            <input id="toggle" type="checkbox">
 
-    <footer class="footer">
-        <h3>Made with ♥️ by LECOMPTE Quentin</h3>
-        <p class="source"><a href="https://ergast.com/mrd/" target="_blank">Source</a></p>
-    </footer>
-</body>
+            <!-- IMPORTANT Tout élément que nous voulons modifier lorsque l'état de la case à cocher change va ici, étant "frère" de l'élément case à cocher -->
+
+            <!-- Cette étiquette est liée à la case à cocher et contiendra les "boutons" à bascule -->
+            <label class="toggle-container" for="toggle">
+                <!-- Si le menu est ouvert, ce sera l'icône "X", sinon juste une zone cliquable derrière l'icône du menu hamburger -->
+                <span class="button button-toggle"></span>
+            </label>
+            <!-- The nav menu -->
+            <nav class="nav">
+                <a class="nav-item" href="">Race</a>
+                <a class="nav-item" href="./qualif/qualif.html">Qualifications</a>
+                <a class="nav-item" href="">Statistics</a>
+                <a class="nav-item" href="">Settings</a>
+            </nav>
+            <h2 class="titre">Les Grand Prix 2022</h2>
+        </div>
+        <footer class="footer">
+            <h3>Made with ♥️ by LECOMPTE Quentin</h3>
+            <p class="source"><a href="https://ergast.com/mrd/" target="_blank">Source</a></p>
+        </footer>
+    </body>
 </html>
