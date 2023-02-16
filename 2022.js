@@ -1,6 +1,6 @@
 let container = document.getElementsByClassName("container")[0];
 
-fetch("https://ergast.com/api/f1/2023.json")
+fetch("https://ergast.com/api/f1/2022.json")
 
     .then((res) => res.json())
     .then((data)=>{
@@ -17,14 +17,14 @@ fetch("https://ergast.com/api/f1/2023.json")
 
             let flagGp = document.createElement("img");
             flagGp.setAttribute("class", "flagGp");
-            flagGp.setAttribute("src", "image/" + data["MRData"]["RaceTable"]["Races"][i]["Circuit"]["circuitId"] + ".png");
+            flagGp.setAttribute("src", "../image/" + data["MRData"]["RaceTable"]["Races"][i]["Circuit"]["circuitId"] +".png");
 
             let pGp = document.createElement("p");
             pGp.setAttribute("class", "pGp");
 
             let chevron = document.createElement("img");
             chevron.setAttribute("class","chevron");
-            chevron.setAttribute("src", "image/chevron.png");
+            chevron.setAttribute("src", "../image/chevron.png");
 
             let pData = data["MRData"]["RaceTable"]["Races"][i]["raceName"];
             pGp.innerHTML = pData;
@@ -77,7 +77,7 @@ fetch("https://ergast.com/api/f1/2023.json")
 
                     divParent.appendChild(divInfo);
 
-                    fetch("https://ergast.com/api/f1/2023/"+ (i+1) + "/results.json")
+                    fetch("https://ergast.com/api/f1/2022/"+ (i+1) + "/results.json")
     
                     .then((res) => res.json())
                     .then((results) =>{
@@ -100,7 +100,7 @@ fetch("https://ergast.com/api/f1/2023.json")
                             divInfo.appendChild(pSecond);
                             divInfo.appendChild(pTrois);
                         } else {
-                            fetch("https://ergast.com/api/f1/2023/"+ (i+1) + ".json")
+                            fetch("https://ergast.com/api/f1/2022/"+ (i+1) + ".json")
     
                             .then((res) => res.json())
                             .then((results) =>{
