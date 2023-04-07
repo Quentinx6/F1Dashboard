@@ -1,0 +1,26 @@
+#divInfo {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.divPodium {
+
+}
+
+.divTime {
+    color: white;
+}
+
+.pTime {
+    margin: 7px 0;
+}
+
+.pTimeOne, .pTimeTwo, .pTimeTree {
+    margin: 10px 0;
+} 
+
+.pFirst, .pSecond, .pTrois {
+    text-align: left;
+  }
+  

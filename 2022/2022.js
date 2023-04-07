@@ -1,6 +1,6 @@
 let container = document.getElementsByClassName("container")[0];
 
-fetch("https://ergast.com/api/f1/2023.json")
+fetch("https://ergast.com/api/f1/2022.json")
 
     .then((res) => res.json())
     .then((data)=>{
@@ -17,7 +17,7 @@ fetch("https://ergast.com/api/f1/2023.json")
 
             let flagGp = document.createElement("img");
             flagGp.setAttribute("class", "flagGp");
-            flagGp.setAttribute("src", "../image/" + data["MRData"]["RaceTable"]["Races"][i]["Circuit"]["circuitId"] + ".png");
+            flagGp.setAttribute("src", "../image/" + data["MRData"]["RaceTable"]["Races"][i]["Circuit"]["circuitId"] +".png");
 
             let pGp = document.createElement("p");
             pGp.setAttribute("class", "pGp");
@@ -33,14 +33,14 @@ fetch("https://ergast.com/api/f1/2023.json")
             let divInfo = document.createElement("div");
             divInfo.setAttribute("class", "divInfo");
 
-            let divPodium = document.createElement("div");
-            divPodium.setAttribute("class", "divPodium");
-
             let pCourse = document.createElement("p");
             pCourse.setAttribute("class", "pCourse");
 
             let pFirst = document.createElement("p");
             pFirst.setAttribute("class", "pFirst");
+
+            let divPodium = document.createElement("div");
+            divPodium.setAttribute("class", "divPodium");
 
             let pSecond = document.createElement("p");
             pSecond.setAttribute("class", "pSecond");
@@ -56,38 +56,18 @@ fetch("https://ergast.com/api/f1/2023.json")
             let pHeure = document.createElement("p");
             pHeure.setAttribute("class", "pHeure");
 
-            let divTime = document.createElement("div");
-            divTime.setAttribute("class", "divTime");
 
-            let pTime = document.createElement("p");
-            pTime.setAttribute("class", "pTime");
-
-            let pTimeOne = document.createElement("p");
-            pTimeOne.setAttribute("class", "pTimeOne");
-
-            let pTimeTwo = document.createElement("p");
-            pTimeTwo.setAttribute("class", "pTimeTwo");
-
-            let pTimeTree = document.createElement("p");
-            pTimeTree.setAttribute("class", "pTimeTree");
 
             divParent.addEventListener("click", () => {
 
                 if(divParent.contains(divInfo)){
                     if(divInfo.contains(pFirst)){
 
-                        divPodium.removeChild(pCourse);
-                        divPodium.removeChild(pFirst);
-                        divPodium.removeChild(pSecond);
-                        divPodium.removeChild(pTrois);
-                        divInfo.removeChild(divPodium);
-                        divTime.removeChild(pTime);
-                        divTime.removeChild(pTimeOne);
-                        divTime.removeChild(pTimeTwo);
-                        divTime.removeChild(pTimeTree);
-                        divInfo.removeChild(divTime);
-                        divParent.removeChild(divInfo);
-                        divInfo.removeAttribute("id", "divInfo");
+                        divInfo.removeChild(pCourse);
+                        divInfo.removeChild(pFirst);
+                        divInfo.removeChild(pSecond);
+                        divInfo.removeChild(pTrois);
+                            divParent.removeChild(divInfo);
                     }else{
                         divInfo.removeChild(pDate);
                         divInfo.removeChild(pHeure);
@@ -97,48 +77,30 @@ fetch("https://ergast.com/api/f1/2023.json")
 
                     divParent.appendChild(divInfo);
 
-                    fetch("https://ergast.com/api/f1/2023/"+ (i+1) + "/qualifying.json")
+                    fetch("https://ergast.com/api/f1/2022/"+ (i+1) + "/results.json")
     
                     .then((res) => res.json())
                     .then((results) =>{
-                        console.log(results)
                         let lengthRace = results["MRData"]["RaceTable"]["Races"].length;
                         if(lengthRace > 0){
-                            let dataFirst = "🏆" + results["MRData"]["RaceTable"]["Races"]["0"]["QualifyingResults"]["0"]["Driver"]["givenName"] + " " + results["MRData"]["RaceTable"]["Races"]["0"]["QualifyingResults"]["0"]["Driver"]["familyName"];
+                            console.log(results)
+                            let dataFirst = "🏆" + results["MRData"]["RaceTable"]["Races"]["0"]["Results"]["0"]["Driver"]["givenName"] + " " + results["MRData"]["RaceTable"]["Races"]["0"]["Results"]["0"]["Driver"]["familyName"];
 
-                            let dataSecond = "🥈" + results["MRData"]["RaceTable"]["Races"]["0"]["QualifyingResults"]["1"]["Driver"]["givenName"] + " " + results["MRData"]["RaceTable"]["Races"]["0"]["QualifyingResults"]["1"]["Driver"]["familyName"];
+                            let dataSecond = "🥈" + results["MRData"]["RaceTable"]["Races"]["0"]["Results"]["1"]["Driver"]["givenName"] + " " + results["MRData"]["RaceTable"]["Races"]["0"]["Results"]["1"]["Driver"]["familyName"];
 
-                            let dataTrois = "🥉" + results["MRData"]["RaceTable"]["Races"]["0"]["QualifyingResults"]["2"]["Driver"]["givenName"] + " " + results["MRData"]["RaceTable"]["Races"]["0"]["QualifyingResults"]["2"]["Driver"]["familyName"];
-
-                            let dataTimeOne = results["MRData"]["RaceTable"]["Races"]["0"]["QualifyingResults"]["0"]["Q3"];
-
-                            let dataTimeTwo = results["MRData"]["RaceTable"]["Races"]["0"]["QualifyingResults"]["1"]["Q3"];
-
-                            let dataTimeTree = results["MRData"]["RaceTable"]["Races"]["0"]["QualifyingResults"]["2"]["Q3"];
+                            let dataTrois = "🥉" + results["MRData"]["RaceTable"]["Races"]["0"]["Results"]["2"]["Driver"]["givenName"] + " " + results["MRData"]["RaceTable"]["Races"]["0"]["Results"]["2"]["Driver"]["familyName"];
     
                             pCourse.innerHTML = "Podium :";
                             pFirst.innerHTML = dataFirst;
                             pSecond.innerHTML = dataSecond;
                             pTrois.innerHTML = dataTrois;
-                            
-                            pTime.innerHTML = "Temps :"
-                            pTimeOne.innerHTML = dataTimeOne;
-                            pTimeTwo.innerHTML = dataTimeTwo;
-                            pTimeTree.innerHTML = dataTimeTree;
-
-                            divInfo.appendChild(divPodium);
-                                divPodium.appendChild(pCourse);
-                                divPodium.appendChild(pFirst);
-                                divPodium.appendChild(pSecond);
-                                divPodium.appendChild(pTrois);
-                            divInfo.appendChild(divTime);
-                                divTime.appendChild(pTime);
-                                divTime.appendChild(pTimeOne);
-                                divTime.appendChild(pTimeTwo);
-                                divTime.appendChild(pTimeTree);
-                                divInfo.setAttribute("id", "divInfo");
+    
+                            divInfo.appendChild(pCourse);
+                            divInfo.appendChild(pFirst);
+                            divInfo.appendChild(pSecond);
+                            divInfo.appendChild(pTrois);
                         } else {
-                            fetch("https://ergast.com/api/f1/2023/"+ (i+1) + ".json")
+                            fetch("https://ergast.com/api/f1/2022/"+ (i+1) + ".json")
     
                             .then((res) => res.json())
                             .then((results) =>{
